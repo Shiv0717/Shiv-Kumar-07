@@ -16,7 +16,7 @@ const Exp= ({ name, date, desc, loc }) => {
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-green-500"></div>
 
         {/* Timeline Content */}
-        <div className="relative p-6 bg-white border rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+        <div className="relative p-6 bg-white border border-green-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow ">
           {/* Title */}
           <motion.h1
             className="text-2xl font-semibold text-green-700 mb-3"

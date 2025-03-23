@@ -32,7 +32,7 @@ const About = () => {
           className="w-full lg:w-1/2 flex justify-center"
           whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
         >
-          <img className="lg:w-3/4 w-4/5 rounded-lg shadow-lg" src={shiv} alt="Shiv Kumar" />
+          <img className="lg:w-3/4 w-4/5 border border-green-700 rounded-lg shadow-lg" src={shiv} alt="Shiv Kumar" />
         </motion.div>
 
         {/* Right Section: Text Information */}

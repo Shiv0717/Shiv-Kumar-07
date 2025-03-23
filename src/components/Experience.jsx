@@ -3,7 +3,7 @@ import { FaBriefcase } from 'react-icons/fa';
 
 const Skills = () => {
   return (
-    <div className="box bg-green-900 flex flex-col justify-center items-center gap-10 pb-10 ">
+    <div className="box bg-green-900 flex flex-col justify-center items-center gap-10 pb-10  ">
       <h1 id="Exp" className="pt-6 text-white text-center text-4xl font-bold">  
         <FaBriefcase className="inline-block mr-2 text-2xl" /> My Experience
       </h1>

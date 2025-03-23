@@ -33,7 +33,7 @@ const Skills = () => {
         My Skills
       </motion.h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-7">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-7 ">
         {[
           { tool: "FIGMA", use: "Design", img: figma },
           { tool: "HTML", use: "Markup", img: html },
@@ -53,7 +53,7 @@ const Skills = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center"
+            className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center border border-green-700"
           >
             <img src={skill.img} alt={skill.tool} className="w-16 h-16 mb-4" />
             <h3 className="text-xl font-bold text-gray-700">{skill.tool}</h3>
