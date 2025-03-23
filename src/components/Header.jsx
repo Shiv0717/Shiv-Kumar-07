@@ -31,11 +31,15 @@ const Header = () => {
         }}
         className="w-full p-6 lg:p-8 flex justify-between items-center"
       >
-        <div className="lg:pl-20">
-          <h1 className="text-3xl font-semibold text-gray-800 hover:text-gray-900 transition-all duration-200">
-            Shiv Kumar
-          </h1>
-        </div>
+       <div className="lg:pl-20 flex items-center gap-2">
+  <motion.div
+    className="text-3xl font-semibold text-gray-800 hover:text-gray-900 transition-all duration-200"
+    whileHover={{ scale: 1.05 }}
+  >
+    <span className="text-green-600">🐼</span> Shiv Kumar
+  </motion.div>
+</div>
+
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-6 text-lg font-medium text-gray-600">
