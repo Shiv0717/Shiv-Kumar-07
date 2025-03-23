@@ -11,28 +11,29 @@ import ts from '../assets/tailwindcss.svg';
 import html from '../assets/html.png';
 import { motion } from 'framer-motion';
 import { FaTools } from 'react-icons/fa';
+
 const Skills = () => {
   return (
     <motion.div
-      className="flex justify-center flex-col items-center py-12"
-      initial={{ opacity: 0, y: 50 }} // Initial state (invisible and slightly down)
-      whileInView={{ opacity: 1, y: 0 }} // Final state when the section is in view
-      transition={{ duration: 0.8 }} // Transition duration
-      viewport={{ once: true, amount: 0.1 }} // Trigger animation when 10% of the component is in view
+      className="flex justify-center flex-col items-center py-12 "
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       <motion.h1
         id="skills"
-        className=" pt-6 text-black lg:mb-12 mb-6 text-center text-4xl font-bold "
-        initial={{ opacity: 0 }} // Initial state (invisible)
-        whileInView={{ opacity: 1 }} // Visible when in view
-        transition={{ duration: 0.5 }} // Transition duration for the heading
+        className="pt-6 text-gray-800 lg:mb-12 mb-6 text-center text-4xl font-bold"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-         <FaTools className="inline-block mr-2 " /> {/* Icon added */}
+        <FaTools className="inline-block mr-2 text-green-500" />
         My Skills
       </motion.h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 px-7">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-7">
         {[
           { tool: "FIGMA", use: "Design", img: figma },
           { tool: "HTML", use: "Markup", img: html },
@@ -52,8 +53,11 @@ const Skills = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
+            className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center"
           >
-            <Box tool={skill.tool} use={skill.use} img={skill.img} />
+            <img src={skill.img} alt={skill.tool} className="w-16 h-16 mb-4" />
+            <h3 className="text-xl font-bold text-gray-700">{skill.tool}</h3>
+            <p className="text-sm text-gray-500">{skill.use}</p>
           </motion.div>
         ))}
       </div>

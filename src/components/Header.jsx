@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX, HiOutlineDownload } from "react-icons/hi";
-import { FaTools } from 'react-icons/fa'; // Importing an icon
-import { FaInfoCircle } from 'react-icons/fa';
-import { FaProjectDiagram } from 'react-icons/fa';
-import { FaBriefcase } from 'react-icons/fa';
-// Rest of your code remains the same
+import { FaTools, FaInfoCircle, FaProjectDiagram, FaBriefcase } from 'react-icons/fa';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,62 +25,35 @@ const Header = () => {
           opacity: 1,
           transition: { duration: 1.5 },
         }}
-        className="w-full p-6 lg:p-8 flex justify-between items-center"
+        className="w-full p-6 lg:p-8 flex justify-between items-center bg-white shadow-md"
       >
-       <div className="lg:pl-20 flex items-center gap-2">
-  <motion.div
-    className="text-3xl font-semibold text-gray-800 hover:text-gray-900 transition-all duration-200"
-    whileHover={{ scale: 1.05 }}
-  >
-    <span className="text-green-600">🐼</span> Shiv Kumar
-  </motion.div>
-</div>
-
+        <div className="lg:pl-14 flex items-center gap-2">
+          <motion.div
+            className="text-3xl font-bold text-gray-700 hover:text-green-600 transition-all duration-200"
+            whileHover={{ scale: 1.05 }}
+          >
+            <span className="text-green-600">🐼</span> Shiv Kumar
+          </motion.div>
+        </div>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-6 text-lg font-medium text-gray-600">
+        <div className="hidden lg:flex items-center gap-6 text-lg font-semibold text-gray-600">
           <ul className="flex space-x-6">
-            <li>
-              <a
-                href="#skills"
-                onClick={(e) => handleScroll(e, "skills")}
-                className="flex items-center gap-2 hover:text-black transition-all duration-200"
-              >
-                <FaTools/> 
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="#Exp"
-                onClick={(e) => handleScroll(e, "Exp")}
-                className="flex items-center gap-2 hover:text-black transition-all duration-200"
-              >
-               <FaBriefcase />
-                Experience
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                onClick={(e) => handleScroll(e, "about")}
-                className="flex items-center gap-2 hover:text-black transition-all duration-200"
-              >
-                <FaInfoCircle />
-                About Me
-              </a>
-            </li>
-            <li>
-              <a
-                href="#project"
-                onClick={(e) => handleScroll(e, "project")}
-                className="flex items-center gap-2 hover:text-black transition-all duration-200"
-              >
-                <FaProjectDiagram  /> 
-                Project
-              </a>
-            </li>
-            
+            {[{ id: 'skills', label: 'Skills', icon: FaTools },
+              { id: 'Exp', label: 'Experience', icon: FaBriefcase },
+              { id: 'about', label: 'About Me', icon: FaInfoCircle },
+              { id: 'project', label: 'Project', icon: FaProjectDiagram }].map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleScroll(e, item.id)}
+                  className="flex items-center gap-2 text-gray-600 hover:text-green-600 transition-all duration-200"
+                >
+                  <item.icon />
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -92,62 +61,28 @@ const Header = () => {
         <div className="lg:hidden">
           <div
             onClick={toggleMenu}
-            className="text-xl cursor-pointer font-semibold text-gray-800"
+            className="text-2xl cursor-pointer font-semibold text-gray-700"
           >
-            {menuOpen ? <HiX /> : <HiMenu />} {/* Toggle between icons */}
+            {menuOpen ? <HiX /> : <HiMenu />} 
           </div>
 
           {menuOpen && (
-            <div className="absolute top-16 left-0 bg-white w-full p-4 shadow-lg z-10">
+            <div className="absolute top-16 left-0 bg-white w-full p-4 shadow-lg z-10 rounded-lg">
               <ul className="space-y-4">
-                <li>
-                  <a
-                    href="#skills"
-                    onClick={(e) => {
-                      handleScroll(e, "skills");
-                      setMenuOpen(false);
-                    }}
-                    className="block hover:text-black transition-all duration-200"
-                  >
-                    Skills
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#about"
-                    onClick={(e) => {
-                      handleScroll(e, "about");
-                      setMenuOpen(false);
-                    }}
-                    className="block hover:text-black transition-all duration-200"
-                  >
-                    About Me
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#project"
-                    onClick={(e) => {
-                      handleScroll(e, "project");
-                      setMenuOpen(false);
-                    }}
-                    className="block hover:text-black transition-all duration-200"
-                  >
-                    Project
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#Exp"
-                    onClick={(e) => {
-                      handleScroll(e, "Exp");
-                      setMenuOpen(false);
-                    }}
-                    className="block hover:text-black transition-all duration-200"
-                  >
-                    Experience
-                  </a>
-                </li>
+                {["skills", "about", "project", "Exp"].map((id) => (
+                  <li key={id}>
+                    <a
+                      href={`#${id}`}
+                      onClick={(e) => {
+                        handleScroll(e, id);
+                        setMenuOpen(false);
+                      }}
+                      className="block text-gray-700 hover:text-green-600 font-medium transition-all duration-200"
+                    >
+                      {id.charAt(0).toUpperCase() + id.slice(1)}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           )}
@@ -157,11 +92,11 @@ const Header = () => {
         <motion.a
           href="https://drive.google.com/file/d/1ybCEpBGWbRkb-cK1gn2C7tQgOaeb5Raq/view?usp=sharing"
           whileHover={{ scale: 1.05 }}
-          className="lg:flex items-center bg-gray-800 p-2 text-white rounded mr-20 hidden "
+          className="lg:flex items-center bg-green-600 p-3 text-white rounded-lg mr-14 hidden font-semibold shadow-lg"
           target="_blank"
         >
           Resume
-          <HiOutlineDownload className="ml-2" /> {/* Adding download icon */}
+          <HiOutlineDownload className="ml-2" />
         </motion.a>
       </motion.div>
     </div>
