@@ -22,13 +22,13 @@ const Skills = () => {
     >
       <motion.h1
         id="skills"
-        className="text-3xl pt-6 text-black lg:mb-12 mb-6 text-center"
+        className=" pt-6 text-black lg:mb-12 mb-6 text-center text-4xl font-bold "
         initial={{ opacity: 0 }} // Initial state (invisible)
         whileInView={{ opacity: 1 }} // Visible when in view
         transition={{ duration: 0.5 }} // Transition duration for the heading
         viewport={{ once: true }}
       >
-         <FaTools className="inline-block mr-2 text-2xl" /> {/* Icon added */}
+         <FaTools className="inline-block mr-2 " /> {/* Icon added */}
         My Skills
       </motion.h1>
 

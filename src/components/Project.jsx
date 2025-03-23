@@ -5,7 +5,7 @@ const Project = () => {
   return (
     <div className='bg-black text-white w-full flex flex-col items-center'>
       <div>
-        <h1 className='mt-6 mb-6 text-3xl md:mb-10' id='project'> <FaProjectDiagram className="inline-block mr-2 text-2xl" /> MY Projects</h1>
+        <h1 className='mt-6 md:mb-10 text-4xl font-bold text-center mb-12' id='project'> <FaProjectDiagram className="inline-block mr-2 text-2xl" /> MY Projects</h1>
       </div>
       <div className='flex flex-col gap-10 ml-8 mr-8 lg:mr-25 lg:ml-25'>
         <Pro direction="row" index='1' tools="Tools & Technologies: React.js,Vite,Tailwind CSS, Axios API" img="https://img.freepik.com/free-vector/business-world-map-infographic_23-2148314455.jpg" title="World Atlas Web Application" link = "https://world-atlas-lty1.vercel.app/" desc="The 'World Atlas' project is an interactive web application that provides users with detailed information about the world's countries and their geographical data. It is designed to help users explore and understand global statistics, such as populations, capitals, currencies, and more. This project showcases the ability to work with geographical data, interactive elements, and modern web technologies."/>  {/* Horizontal */}
