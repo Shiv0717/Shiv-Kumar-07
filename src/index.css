@@ -1,0 +1,8 @@
+@import "tailwindcss";
+body{
+    font-family: "Sora", serif;
+    scroll-behavior: smooth;
+}
+.text-stroke-3 {
+    -webkit-text-stroke: 3px black;
+}
