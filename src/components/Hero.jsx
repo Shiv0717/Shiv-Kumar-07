@@ -1,6 +1,6 @@
 import React from "react";
 import boy from "../assets/boy.jpg";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -8,26 +8,26 @@ const Hero = () => {
       {/* Text Section */}
       <div className="lg:w-1/2 flex flex-col gap-6 text-center lg:text-left">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 4 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
         >
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-4 mt-8">
-            Hello, I’m <span className="text-green-600">Shiv Kumar</span>
+            Hey there, I’m <span className="text-green-600">Shiv Kumar</span>
           </h1>
           <h2 className="text-3xl lg:text-5xl font-extrabold text-gray-700">
-            Frontend <span className="text-green-500">Developer</span>
+            Crafting experiences as a <span className="text-green-500">Frontend Developer</span>
           </h2>
-          <p className="text-2xl lg:text-3xl text-gray-800">Based In <span className="text-green-600">India</span></p>
+          <p className="text-2xl lg:text-3xl text-gray-800">From <span className="text-green-600">India</span> to the world</p>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 4 }}
+          transition={{ duration: 1.5 }}
           className="text-lg lg:text-xl text-zinc-600 leading-relaxed text-justify"
         >
-          I'm a Frontend Developer skilled in React and the MERN stack, passionate about creating user-centric, accessible, and engaging digital experiences. With expertise in UI/UX and testing, I build seamless and visually appealing web applications.
+          As a MERN stack developer with a passion for problem-solving, I craft dynamic, user-friendly web applications. Whether it’s designing seamless interfaces or optimizing backend performance, I turn ideas into reality.
         </motion.p>
 
         {/* Social Links */}
@@ -56,9 +56,9 @@ const Hero = () => {
       {/* Image Section */}
       <div className="lg:w-1/2 w-full flex justify-center lg:justify-end mt-10 lg:mt-0">
         <motion.img
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 4 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
           className="w-full max-w-xs lg:max-w-md object-cover rounded-lg shadow-xl"
           src={boy}
           alt="Shiv Kumar"

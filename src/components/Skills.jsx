@@ -13,6 +13,12 @@ import { motion } from 'framer-motion';
 import { FaTools } from 'react-icons/fa';
 
 const Skills = () => {
+  const cardVariants = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    hover: { scale: 1.1, boxShadow: '0px 15px 30px rgba(0,0,0,0.2)' }
+  };
+
   return (
     <motion.div
       className="flex justify-center flex-col items-center py-12 "
@@ -48,11 +54,10 @@ const Skills = () => {
         ].map((skill, index) => (
           <motion.div
             key={index}
-            whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, amount: 0.2 }}
+            variants={cardVariants}
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
             className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center border border-green-700"
           >
             <img src={skill.img} alt={skill.tool} className="w-16 h-16 mb-4" />
