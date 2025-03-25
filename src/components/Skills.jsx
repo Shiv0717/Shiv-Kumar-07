@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FaTools } from 'react-icons/fa';
 import Box from './Box';
 import figma from '../assets/figma.svg';
 import css from '../assets/css3.svg';
@@ -9,14 +11,16 @@ import node from '../assets/nodejs.svg';
 import react from '../assets/react.webp';
 import ts from '../assets/tailwindcss.svg';
 import html from '../assets/html.png';
-import { motion } from 'framer-motion';
-import { FaTools } from 'react-icons/fa';
 
 const Skills = () => {
   const cardVariants = {
     initial: { opacity: 0, scale: 0.8 },
     animate: { opacity: 1, scale: 1 },
     hover: { scale: 1.1, boxShadow: '0px 15px 30px rgba(0,0,0,0.2)' }
+  };
+
+  const imgVariants = {
+    hover: { rotate: 360, transition: { duration: 0.6 } }
   };
 
   return (
@@ -60,7 +64,14 @@ const Skills = () => {
             whileHover="hover"
             className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center border border-green-700"
           >
-            <img src={skill.img} alt={skill.tool} className="w-16 h-16 mb-4" />
+            {/* Rotating Image on Hover */}
+            <motion.img
+              src={skill.img}
+              alt={skill.tool}
+              className="w-16 h-16 mb-4"
+              variants={imgVariants}
+              whileHover="hover"
+            />
             <h3 className="text-xl font-bold text-gray-700">{skill.tool}</h3>
             <p className="text-sm text-gray-500">{skill.use}</p>
           </motion.div>

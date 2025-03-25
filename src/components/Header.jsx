@@ -20,29 +20,35 @@ const Header = () => {
     <div>
       <motion.div
         initial={{ opacity: 0, y: -40 }}
-        animate={{
-          y: 0,
-          opacity: 1,
-          transition: { duration: 1.5 },
-        }}
+        animate={{ y: 0, opacity: 1, transition: { duration: 1.5 } }}
         className="w-full p-6 lg:p-8 flex justify-between items-center bg-white shadow-md"
       >
+        {/* Logo with Rotating Panda on Hover */}
         <div className="lg:pl-14 flex items-center gap-2">
           <motion.div
-            className="text-3xl font-bold text-gray-700 hover:text-green-600 transition-all duration-200"
+            className="text-3xl font-bold text-gray-700 hover:text-green-600 transition-all duration-200 flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="text-green-600">🐼</span> Shiv Kumar
+            <motion.span
+              className="text-green-600 text-4xl"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
+            >
+              🐼
+            </motion.span>
+            Shiv Kumar
           </motion.div>
         </div>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-6 text-lg font-semibold text-gray-600">
           <ul className="flex space-x-6">
-            {[{ id: 'skills', label: 'Skills', icon: FaTools },
+            {[
+              { id: 'skills', label: 'Skills', icon: FaTools },
               { id: 'Exp', label: 'Experience', icon: FaBriefcase },
               { id: 'about', label: 'About Me', icon: FaInfoCircle },
-              { id: 'project', label: 'Project', icon: FaProjectDiagram }].map((item) => (
+              { id: 'project', label: 'Project', icon: FaProjectDiagram }
+            ].map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
@@ -59,11 +65,8 @@ const Header = () => {
 
         {/* Mobile Nav */}
         <div className="lg:hidden">
-          <div
-            onClick={toggleMenu}
-            className="text-2xl cursor-pointer font-semibold text-gray-700"
-          >
-            {menuOpen ? <HiX /> : <HiMenu />} 
+          <div onClick={toggleMenu} className="text-2xl cursor-pointer font-semibold text-gray-700">
+            {menuOpen ? <HiX /> : <HiMenu />}
           </div>
 
           {menuOpen && (
@@ -94,6 +97,7 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           className="lg:flex items-center bg-green-600 p-3 text-white rounded-lg mr-14 hidden font-semibold shadow-lg"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Resume
           <HiOutlineDownload className="ml-2" />
